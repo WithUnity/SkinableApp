@@ -1,0 +1,41 @@
+<!-- Copyright 2018-2021 Robin Murison
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
+<UserControl x:Class="SkinnableApp.AgentSelectorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border Style="{DynamicResource StyleContentArea}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- AGENT SELECTOR HEADER -->
+            <Border Style="{DynamicResource StyleContentAreaHeader}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Margin="4,4,0,4"
+                           Source=".\Resources\Icons\agents.ico"/>
+                    <TextBlock FontSize="20"
+                               Padding="8"
+                               Text="{DynamicResource ResourceKey=Agents}"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <!-- AGENT SELECTION LIST -->
+            <ListBox BorderThickness="0"
+                     Grid.Row="1"
+                     Background="{DynamicResource ResourceKey=ContentAreaHeaderBackgroundBrush}" 
+                     Foreground="{DynamicResource ResourceKey=InforTextBrush}"
+                     IsSynchronizedWithCurrentItem="True"
+                     ItemsSource="{Binding}"
+                     ItemTemplate="{DynamicResource AgentListItemTemplate}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+        </Grid>
+    </Border>
+</UserControl>
